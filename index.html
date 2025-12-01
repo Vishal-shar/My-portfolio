@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vishal Sharma | Data Analyst & ML Enthusiast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Vishal Sharma – Data Analyst & Machine Learning Enthusiast with experience in Python, SQL, TensorFlow, Data Science, and Web Development."
+  />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --accent: #3b82f6;
+      --accent-2: #22c55e;
+      --accent-soft: rgba(59, 130, 246, 0.15);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --card-bg: #020617;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.95);
+      --radius-xl: 18px;
+      --radius-2xl: 24px;
+      --transition: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent 55%),
+        radial-gradient(circle at bottom, rgba(34, 197, 94, 0.14), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.94),
+        rgba(2, 6, 23, 0.84),
+        transparent
+      );
+      border-bottom: 1px solid rgba(31, 41, 55, 0.7);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      background: radial-gradient(circle at top, #1d4ed8, #020617);
+      box-shadow:
+        0 0 25px rgba(59, 130, 246, 0.45),
+        0 0 35px rgba(34, 197, 94, 0.4);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+    }
+
+    .nav-title span:first-child {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-title span:last-child {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: center;
+      background: linear-gradient(to right, #3b82f6, #22c55e);
+      transition: transform var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: radial-gradient(circle at top, #111827, #020617);
+      cursor: pointer;
+      transition: border var(--transition), transform var(--transition),
+        box-shadow var(--transition), background var(--transition);
+    }
+
+    .nav-cta:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.85);
+      background: radial-gradient(circle at top, #1d4ed8, #020617);
+      color: var(--text);
+    }
+
+    .nav-cta span.icon {
+      font-size: 0.95rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4.5rem 0 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, 0.5);
+      background: linear-gradient(
+        to right,
+        rgba(37, 99, 235, 0.25),
+        rgba(37, 99, 235, 0.05)
+      );
+      margin-bottom: 1rem;
+      box-shadow: 0 0 18px rgba(37, 99, 235, 0.4);
+    }
+
+    .hero-kicker-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 span.highlight {
+      background: linear-gradient(135deg, #60a5fa, #22c55e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.7rem 1.3rem;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background var(--transition), color var(--transition),
+        transform var(--transition), box-shadow var(--transition),
+        border var(--transition), opacity var(--transition);
+      background: transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #22c55e);
+      color: #f9fafb;
+      box-shadow:
+        0 18px 45px rgba(37, 99, 235, 0.5),
+        0 0 35px rgba(34, 197, 94, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow:
+        0 18px 55px rgba(37, 99, 235, 0.75),
+        0 0 40px rgba(34, 197, 94, 0.55);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.32), transparent 55%),
+        radial-gradient(circle at bottom, rgba(34, 197, 94, 0.2), transparent 60%),
+        #020617;
+      border-radius: var(--radius-2xl);
+      padding: 1.6rem 1.5rem;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      white-space: nowrap;
+    }
+
+    .hero-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-stat {
+      border-radius: 14px;
+      padding: 0.6rem 0.7rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+    }
+
+    .hero-stat strong {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-spark {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* CV DROPDOWN */
+    .cv-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .cv-menu {
+      position: absolute;
+      top: 115%;
+      left: 0;
+      min-width: 220px;
+      padding: 0.45rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      display: none;
+      z-index: 15;
+    }
+
+    .cv-menu.open {
+      display: block;
+      animation: fadeIn 0.18s ease-out;
+    }
+
+    .cv-menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      padding: 0.45rem 0.6rem;
+      border-radius: 0.6rem;
+      color: var(--muted);
+    }
+
+    .cv-menu a span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .cv-menu a:hover {
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--text);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 30rem;
+    }
+
+    /* Cards / grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .grid-3-tight {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), #020617);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.1rem 1.0rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      transition: transform var(--transition), box-shadow var(--transition),
+        border var(--transition), background var(--transition),
+        translate var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(
+        circle at top right,
+        rgba(59, 130, 246, 0.13),
+        transparent 60%
+      );
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 52px rgba(15, 23, 42, 0.96);
+      border-color: rgba(59, 130, 246, 0.8);
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-sub {
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+      margin-top: 0.35rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Project links inside cards */
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+    }
+
+    .project-link {
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .project-link span.icon {
+      font-size: 0.9rem;
+    }
+
+    .project-link:hover {
+      border-style: solid;
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* Timeline / Experience */
+    .timeline {
+      border-left: 1px solid rgba(55, 65, 81, 0.9);
+      padding-left: 1.1rem;
+      margin-top: 0.4rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.1rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -1.63rem;
+      top: 0.12rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #3b82f6;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.9);
+    }
+
+    .timeline-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .contact-info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .contact-pill {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+    }
+
+    .field label {
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.6rem 0 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 3.5rem;
+    }
+
+    footer .footer-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--muted);
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-3,
+      .grid-3-tight {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        inset-inline: 0;
+        top: 100%;
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events: none;
+        background: rgba(2, 6, 23, 0.98);
+        padding: 0.75rem 1.25rem 1rem;
+        border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+        flex-direction: column;
+      }
+
+      .nav-links.open {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo-circle">VS</div>
+        <div class="nav-title">
+          <span>Vishal Sharma</span>
+          <span>Data Analyst • ML • Python</span>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+        ☰
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button
+        class="nav-cta"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+      >
+        <span class="icon">📩</span>
+        <span>Let’s connect</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div>
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          DATA • ANALYTICS • ML
+        </div>
+        <h1>
+          Data Analyst &amp; <span class="highlight">ML Enthusiast</span><br />
+          turning data into decisions.
+        </h1>
+        <p class="hero-sub">
+          I’m Vishal Sharma, a data-driven developer from Sikkim with a strong
+          foundation in Python, Machine Learning, and Analytics. I build
+          solutions that transform raw data into meaningful insights and
+          deployable applications.
+        </p>
+        <div class="hero-meta">
+          <span>📍 Gangtok, Sikkim, India</span>
+          <span>📧 <a href="mailto:vs0201230@gmail.com">vs0201230@gmail.com</a></span>
+          <span>
+            🔗
+            <a
+              href="https://www.linkedin.com/in/vishal-sharma2307"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </span>
+        </div>
+        <div class="hero-buttons">
+          <!-- CV DROPDOWN: replace these links with your real CV URLs (Google Drive, etc.) -->
+          <div class="cv-dropdown">
+            <button class="btn btn-primary cv-toggle" type="button">
+              <span>⬇</span>
+              <span>Download CV ▾</span>
+            </button>
+            <div class="cv-menu" id="cvMenu">
+              <a
+                href="https://github.com/Vishal-shar/vishal-resume/blob/main/Vishal_Sharma_Data_Analyst_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span><span>📊</span> Data Analyst CV</span>
+                <span>PDF</span>
+              </a>
+              <a
+                href="https://github.com/Vishal-shar/vishal-resume/blob/main/Vishal_Sharma_Python_Developer_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span><span>💻</span> Python Developer CV</span>
+                <span>PDF</span>
+              </a>
+              <a
+                href="https://github.com/Vishal-shar/vishal-resume/blob/main/Vishal_Sharma_Data_Scientist_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span><span>🤖</span> ML / Data science CV</span>
+                <span>PDF</span>
+              </a>
+              </a>
+            </div>
+          </div>
+
+          <button
+            class="btn btn-ghost"
+            onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"
+          >
+            <span>📊</span>
+            <span>View My Projects</span>
+          </button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div>
+            <div class="card-sub">Profile Snapshot</div>
+            <div class="card-title">MCA Graduate • Data & ML</div>
+            <p class="card-body">
+              Experienced in Python, SQL, TensorFlow, and web development with
+              hands-on projects in deep learning, NLP, computer vision, and
+              analytics.
+            </p>
+          </div>
+
+          <div>
+            <div style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem;">
+              Core stack
+            </div>
+            <div class="pill-row">
+              <span class="pill">Python</span>
+              <span class="pill">SQL</span>
+              <span class="pill">Pandas &amp; NumPy</span>
+              <span class="pill">Machine Learning</span>
+              <span class="pill">TensorFlow &amp; Keras</span>
+              <span class="pill">Data Visualization</span>
+              <span class="pill">Django &amp; Streamlit</span>
+              <span class="pill">Gen AI</span>
+            </div>
+          </div>
+
+          <div class="hero-stat-row">
+            <div class="hero-stat">
+              <span>Projects in</span>
+              <strong>ML &amp; AI</strong>
+              <span>RNN • LSTM • CNN</span>
+            </div>
+            <div class="hero-stat">
+              <span>Govt.</span>
+              <strong>Internship</strong>
+              <span>Tenant Portal (Django)</span>
+            </div>
+            <div class="hero-stat">
+              <span>Domains</span>
+              <strong>Analytics</strong>
+              <span>Segmentation • Churn</span>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <span class="hero-spark">Open to Data / ML roles</span>
+            <span>Available: Full-time • Pan India</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">ABOUT</div>
+          <div class="section-title">Who I am</div>
+        </div>
+        <p class="section-subtitle">
+          A technology enthusiast with a strong academic background and
+          practical experience in building data-driven and production-ready
+          applications.
+        </p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Background</div>
+          <p class="card-body">
+            I’m Vishal Sharma, from Sikkim, India. I completed my schooling and
+            graduation in Sikkim and hold a Bachelor of Computer Applications
+            (BCA) and a Master of Computer Applications (MCA) from Sikkim
+            Manipal Institute of Technology.
+          </p>
+          <p class="card-body">
+            I specialize in Artificial Intelligence, Machine Learning, Data
+            Science, and software development. I enjoy taking ideas from
+            concept to deployment — whether it’s a data pipeline, a prediction
+            model, or a full-stack web application.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">What I love working on</div>
+          <p class="card-body">
+            My interests include designing ML models for real-world problems:
+            sentiment analysis, customer behavior, churn prediction, and
+            computer vision for safety and automation.
+          </p>
+          <p class="card-body">
+            I’m also passionate about building usable products – integrating ML
+            into web apps, streamlining user flows, and making insights
+            accessible to non-technical stakeholders.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Data Science</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Web Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">SKILLS</div>
+          <div class="section-title">Tech stack & strengths</div>
+        </div>
+        <p class="section-subtitle">
+          A mix of analytical, programming, and deployment skills used across
+          data science, ML, and backend development.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">Data & Programming</div>
+          <div class="card-body">
+            <ul style="list-style: none; padding-left: 0; font-size: 0.86rem;">
+              <li>• Python (Pandas, NumPy, Matplotlib, Scikit-learn)</li>
+              <li>• SQL &amp; relational databases</li>
+              <li>• Excel for analysis &amp; reporting</li>
+              <li>• Statistics &amp; analytical reasoning</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Statistics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Machine Learning & AI</div>
+          <div class="card-body">
+            <ul style="list-style: none; padding-left: 0; font-size: 0.86rem;">
+              <li>• Supervised &amp; unsupervised learning</li>
+              <li>• Deep Learning with TensorFlow &amp; Keras</li>
+              <li>• RNN, LSTM, CNN architectures</li>
+              <li>• NLP &amp; text analytics</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">ML</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span>
+            <span class="tag">RNN / LSTM</span>
+            <span class="tag">CNN</span>
+            <span class="tag">NLP</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Web & Tools</div>
+          <div class="card-body">
+            <ul style="list-style: none; padding-left: 0; font-size: 0.86rem;">
+              <li>• Django, Streamlit for web applications</li>
+              <li>• PHP, MySQL, HTML, CSS, JavaScript</li>
+              <li>• Git &amp; version control</li>
+              <li>• Tableau, Power BI (visualization)</li>
+            </ul>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Django</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">HTML/CSS/JS</span>
+            <span class="tag">Git</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Power BI</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;" class="grid-2">
+        <div class="card">
+          <div class="card-title">Soft Skills</div>
+          <div class="card-body">
+            Strong communication, problem solving, and critical thinking. I
+            enjoy breaking down complex concepts for non-technical audiences and
+            collaborating with cross-functional teams.
+          </div>
+          <div class="tag-row">
+            <span class="tag">Communication</span>
+            <span class="tag">Critical Thinking</span>
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Team Collaboration</span>
+            <span class="tag">Adaptability</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Certifications</div>
+          <div class="card-body">
+            <ul style="list-style: none; padding-left: 0; font-size: 0.86rem;">
+              <li>• NPTEL Machine Learning – IIT Madras</li>
+              <li>• NPTEL Cyber Security – IIT Madras</li>
+              <li>• Data Science (online course)</li>
+              <li>• TensorFlow</li>
+              <li>• Python Programming</li>
+              <li>• Deloitte Australia – Data Analytics Virtual Job Simulation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">PROJECTS</div>
+          <div class="section-title">Selected work</div>
+        </div>
+        <p class="section-subtitle">
+          A snapshot of my hands-on work across NLP, deep learning, computer
+          vision, and data analytics.
+        </p>
+      </div>
+
+      <div class="grid-3-tight">
+        <div class="card">
+          <div class="card-title">IMDB Sentiment Analysis (RNN)</div>
+          <div class="card-sub">NLP • Deep Learning</div>
+          <p class="card-body">
+            Built a Recurrent Neural Network model to classify movie reviews as
+            positive or negative, and deployed the model using Streamlit with a
+            live user input interface.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span>
+            <span class="tag">RNN</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <div class="project-links">
+            <!-- Replace # with your GitHub / demo links -->
+            <a href="https://github.com/Vishal-shar/Sentiment-analysis.git" target="_blank" class="project-link">
+              <span class="icon">🔗</span><span>View Code</span>
+              <a href="https://www.linkedin.com/posts/vishal-sharma2307_sentimentanalysis-streamlit-deeplearning-activity-7350586605985812481-RyOo?utm_source=share&utm_medium=member_desktop&rcm=ACoAADeqsL8BFG7Kg4K2UN87ie1Jo26PL5AaXGw" target="_blank" class="project-link">
+              <span class="icon">▶</span><span>Live Demo</span>
+            </a>
+            </a>
+    
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Next Word Prediction (LSTM)</div>
+          <div class="card-sub">Sequence Modeling</div>
+          <p class="card-body">
+            Developed an LSTM-based NLP model for predictive text generation,
+            learning context from input sequences to suggest the next probable
+            word.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">LSTM</span>
+            <span class="tag">Keras</span>
+            <span class="tag">NLP</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Vishal-shar/Next-Word-Prediction.git" target="_blank" class="project-link">
+              <span class="icon">🔗</span><span>View Code</span>
+            </a>
+            <a href="https://www.linkedin.com/posts/vishal-sharma2307_lstm-deeplearning-nlp-activity-7352757194636840960-oiJF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADeqsL8BFG7Kg4K2UN87ie1Jo26PL5AaXGw" target="_blank" class="project-link">
+              <span class="icon">▶</span><span>Live Demo</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Customer Churn Prediction Web App</div>
+          <div class="card-sub">Analytics • Classification</div>
+          <p class="card-body">
+            Created a churn prediction system using ML algorithms, EDA, and
+            visualization to help understand drivers of customer churn and
+            support retention strategies.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">EDA</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Pandas</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Vishal-shar/Customer-churn-prediction.git" target="_blank" class="project-link">
+              <span class="icon">🔗</span><span>View Code</span>
+            </a>
+            <a href="https://www.linkedin.com/posts/vishal-sharma2307_customerchurn-deeplearning-tensorflow-activity-7349366618595958784-4xrx?utm_source=share&utm_medium=member_desktop&rcm=ACoAADeqsL8BFG7Kg4K2UN87ie1Jo26PL5AaXGw" target="_blank" class="project-link">
+              <span class="icon">▶</span><span>Live Demo</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Customer Segmentation (K-Means)</div>
+          <div class="card-sub">Clustering • Marketing Analytics</div>
+          <p class="card-body">
+            Implemented K-Means clustering to segment mall customers based on
+            age and spending behavior, enabling more targeted marketing
+            strategies.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">K-Means</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Data Visualization</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Vishal-shar/Customer-Segmentation.git" target="_blank" class="project-link">
+              <span class="icon">🔗</span><span>View Code</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Driver Drowsiness Detection (CNN)</div>
+          <div class="card-sub">Computer Vision • Safety</div>
+          <p class="card-body">
+            Built a real-time drowsiness detection system using a CNN with
+            OpenCV to monitor eye states and alert when drowsiness is detected,
+            improving road safety.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">CNN</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Real-time</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Vishal-shar/Driver-drowsiness-System.git" target="_blank" class="project-link">
+              <span class="icon">🔗</span><span>View Code</span>
+            </a>
+          </div>
+        </div>
+          
+        <div class="card">
+          <div class="card-title">Food Ordering Web App</div>
+          <div class="card-sub">Full Stack • PHP</div>
+          <p class="card-body">
+            Built a restaurant management and food ordering web application
+            handling menu, orders, and billing using PHP, MySQL, HTML, CSS.
+          </p>
+          <div class="tag-row">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Vishal-shar/college-canteen.git" target="_blank" class="project-link">
+              <span class="icon">🔗</span><span>View Code</span>
+            </a>
+        
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Tenant Verification Portal</div>
+          <div class="card-sub">Govt. Project • Full Stack</div>
+          <p class="card-body">
+            Developed a tenant verification web application for the IT
+            Department, Government of Sikkim, digitizing the police–tenant
+            verification process and reducing manual paperwork.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Django</span>
+            <span class="tag">HTML/CSS/JS</span>
+            <span class="tag">SQLite</span>
+          </div>
+          <div class="project-links">
+            <a href="https://your-link-here.com/tenant-portal-code" target="_blank" class="project-link">
+              <span class="icon">🔗</span><span>View Code</span>
+            </a>
+            <a href="https://your-link-here.com/tenant-portal-demo" target="_blank" class="project-link">
+              <span class="icon">▶</span><span>Live Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extra space for future projects -->
+      <div style="margin-top: 2rem;">
+        <div class="section-header" style="margin-bottom: 0.9rem;">
+          <div>
+            <div class="section-kicker">MORE PROJECTS</div>
+            <div class="section-title">Upcoming & experimental work</div>
+          </div>
+          <p class="section-subtitle">
+            Space reserved for future projects. You can duplicate an existing
+            card and update the details whenever you build something new.
+          </p>
+        </div>
+
+        <div class="grid-3-tight">
+          <div class="card">
+            <div class="card-title">Your Next Project Title</div>
+            <div class="card-sub">Domain • Tech</div>
+            <p class="card-body">
+              Short description of your upcoming or experimental project. Add
+              what problem it solves and which tech stack you will use.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">To be added</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <span class="icon">🔗</span><span>View Code (soon)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">EXPERIENCE</div>
+          <div class="section-title">Professional Journey</div>
+        </div>
+        <p class="section-subtitle">
+          Industry experience delivering real-world solutions for government
+          systems and users.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Python Backend Developer</div>
+            <div class="timeline-meta">
+              IT Department, Government of Sikkim · Jan 2025 – May 2025
+            </div>
+            <div class="timeline-desc">
+              <ul style="list-style: none; padding-left: 0; font-size: 0.86rem;">
+                <li>
+                  • Developed and deployed the Sikkim Tenant Verification Portal
+                  using Python (Django) for backend and HTML, CSS, JavaScript
+                  for frontend.
+                </li>
+                <li>
+                  • Designed and implemented OTP-based authentication and
+                  role-based access control for tenants, homeowners, and police
+                  officials.
+                </li>
+                <li>
+                  • Built efficient database models and RESTful APIs for
+                  registration, verification, and approval workflows.
+                </li>
+                <li>
+                  • Collaborated with senior developers to enhance security,
+                  scalability, and integration between backend and frontend.
+                </li>
+                <li>
+                  • Gained hands-on experience in full-stack development and
+                  government-level project deployment.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Developer (Internship)</div>
+            <div class="timeline-meta">
+              IT Department, Government of Sikkim · May 2020 – Jan 2025
+            </div>
+            <div class="timeline-desc">
+              <p>
+                Contributed to the design and development of the Tenant
+                Verification Web Application, integrating authentication,
+                role-based access, and database operations using Python, Django,
+                HTML, CSS, JavaScript, and SQLite.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">EDUCATION</div>
+          <div class="section-title">Academic foundation</div>
+        </div>
+        <p class="section-subtitle">
+          Formal education in computer applications, information technology, and
+          applied computing.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            Master of Computer Applications (MCA)
+          </div>
+          <div class="card-sub">Sikkim Manipal Institute of Technology</div>
+          <div class="card-body">
+            <p>Aug 2023 – Jul 2025</p>
+            <p>CGPA: 7.4 / 10</p>
+            <p style="margin-top: 0.4rem;">
+              Focus on computer science, data structures, algorithms, software
+              engineering, and advanced topics in data science and machine
+              learning.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            Bachelor of Computer Applications (BCA)
+          </div>
+          <div class="card-sub">Sikkim Manipal Institute of Technology</div>
+          <div class="card-body">
+            <p>2019 – 2022</p>
+            <p>CGPA: 7.96 / 10 (≈ 75%)</p>
+            <p style="margin-top: 0.4rem;">
+              Core foundation in programming, databases, operating systems, and
+              web technologies, forming the base for my development and data
+              work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">CONTACT</div>
+          <div class="section-title">Let’s work together</div>
+        </div>
+        <p class="section-subtitle">
+          Open to opportunities in Data Analyst, Junior Data Scientist, Business
+          Analyst, or ML Engineer roles across India (remote, hybrid, or
+          on-site).
+        </p>
+      </div>
+
+      <div class="card contact-card">
+        <div>
+          <div class="card-title">Get in touch</div>
+          <div class="card-body">
+            If you’re hiring for a data, ML, backend-focused role, or you’d like to collaborate on a project, feel free to reach out. 
+  I’m also comfortable working in the domains of Data Analysis and Data Science. 
+  I’ll be happy to share more details, walk you through my work, or build a quick proof-of-concept.
+</div>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-pill">
+              📍 Gangtok, Sikkim, India
+            </span>
+            <span class="contact-pill">
+              📧
+              <a href="mailto:vs0201230@gmail.com">vs0201230@gmail.com</a>
+            </span>
+            <span class="contact-pill">
+              🔗
+              <a
+                href="https://www.linkedin.com/in/vishal-sharma2307"
+                target="_blank"
+                rel="noopener noreferrer"
+                >linkedin.com/in/vishal-sharma2307</a
+              >
+            </span>
+          </div>
+        </div>
+
+        <!-- Static form UI – connect with backend / Formspree to make it functional -->
+        <section id="contact">
+  <div class="section-header">
+    <div>
+      <div class="section-kicker">CONTACT</div>
+      <div class="section-title">Let’s work together</div>
+    </div>
+    <p class="section-subtitle">
+      Open to opportunities in Data Analyst, Junior Data Scientist, Business
+      Analyst, or ML Engineer roles across India (remote, hybrid, or on-site).
+    </p>
+  </div>
+
+  <div class="card contact-card" style="display:flex; flex-direction:column; gap:1.4rem;">
+    <div>
+      <div class="card-title">Get in touch</div>
+      <div class="card-body">
+        You can reach out to me directly using the details below.
+      </div>
+
+      <div class="contact-info-row">
+        <span class="contact-pill">
+          👨‍💼 Vishal Sharma
+        </span>
+
+        <span class="contact-pill">
+          📧 <a href="mailto:vs0201230@gmail.com">vs0201230@gmail.com</a>
+        </span>
+
+        <span class="contact-pill">
+          📞 <a href="tel:+918597400246">+91 85974 00246</a>
+        </span>
+
+        <span class="contact-pill">
+          🔗 <a href="https://www.linkedin.com/in/vishal-sharma2307" target="_blank">LinkedIn Profile</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-row">
+        <span>© <span id="year"></span> Vishal Sharma. All rights reserved.</span>
+        <span>
+          Built with <span aria-hidden="true">💻</span> &amp; Python, ML, and a
+          love for clean data.
+        </span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Close menu on link click (mobile)
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // CV dropdown
+    const cvToggle = document.querySelector(".cv-toggle");
+    const cvMenu = document.getElementById("cvMenu");
+
+    cvToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      cvMenu.classList.toggle("open");
+    });
+
+    // Close CV menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!cvMenu.contains(e.target) && !cvToggle.contains(e.target)) {
+        cvMenu.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>
